@@ -41,7 +41,7 @@ public class UpdateUser extends HttpServlet {
 
         String applicationPath = request.getServletContext().getRealPath("");
 
-        String uploadFilePath = applicationPath + File.separator + UPLOAD_DIR;
+        String uploadFilePath = applicationPath + UPLOAD_DIR;
 
         File uploadFolder = new File(uploadFilePath);
         if (!uploadFolder.exists()) {
@@ -56,10 +56,9 @@ public class UpdateUser extends HttpServlet {
         for (Part part : request.getParts()) {
             if (part != null && part.getSize() > 0) {
                 String fileName = part.getSubmittedFileName();
-                String contentType = part.getContentType();
-
                 part.write(uploadFilePath + File.separator + fileName);
-                String sPath = uploadFolder.getAbsolutePath() + File.separator + fileName;
+                String sPath =Config.URL_PATH + File.separator + UPLOAD_DIR + File.separator + fileName;
+                System.out.println(sPath);
                 context.put("avatar", sPath);
             }
         }
