@@ -9,11 +9,20 @@
 <html>
 <head>
     <title>Home Page</title>
+    <link href="${pageContext.request.contextPath}/css/bootstrap.css" type="text/css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/my.css" type="text/css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <div class="col-lg-4">
+        <div class="col-lg-4 well">
             <p>Hello, ${name}</p>
+            <img src="${avatar}">
+        </div>
+        <div class="col-lg-4 well">
+            <a href="${pageContext.request.contextPath}/logout" class="btn-danger">Log Out</a>
+        </div>
+        <div class="col-lg-4 well">
+            <a href="${pageContext.request.contextPath}/update" class="btn-info">Update Avatar</a>
         </div>
     </div>
 </body>
